@@ -16,7 +16,7 @@ module.exports = {
   networks: {
     hardhat: {},
     buildbear: {
-      url: "[Insert your RPC URL here]",
+      url: "https://rpc.buildbear.io/alternative-r2-d2-90cd95c4"
     },
 
   },
@@ -78,7 +78,20 @@ module.exports = {
       },
     ],
   },
-  etherscan: { //Insert the values from the buildbear dashboard
+  etherscan: {
+    apiKey: {
+      buildbear: "verifyContract",
+    },
+    customChains: [
+      {
+        network: "buildbear",
+        chainId: 8722,
+        urls: {
+          apiURL: "https://rpc.buildbear.io/verify/etherscan/alternative-r2-d2-90cd95c4",
+          browserURL: "https://explorer.buildbear.io/alternative-r2-d2-90cd95c4",
+        },
+      },
+    ],
   },
   paths: {
     sources: './contracts',
